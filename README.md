@@ -1,56 +1,52 @@
 # SOFTDRINK 2K28
 
-SOFTDRINK 2K28 turns your own copy of ESPN NFL 2K5 (USA, Xbox) into a 2026 season disc: the 2026 teams, rosters,
-uniforms, faces and coaches, rebuilt modern stadiums, the 2026 ESPN presentation and the rest of the SOFTDRINK
-changes. It is made with the free 2K5 Mod Studio from
-[2k-football-mod-tools](https://github.com/cruuz/2k-football-mod-tools).
+SOFTDRINK 2K28 turns your own copy of ESPN NFL 2K5 (USA, Xbox) into a 2026 season disc: teams, rosters, uniforms, faces and coaches, rebuilt modern stadiums, and the 2026 ESPN presentation. It is made with the free [2K5 Mod Studio](https://github.com/cruuz/2k-football-mod-tools).
 
 ## What you need
 
-- Your own disc image of ESPN NFL 2K5 (USA) for the original Xbox. Any common dump works: a plain xiso, a raw dump,
-  or a repacked image. It is never changed.
-- 2K5 Mod Studio from [beta-76.2](https://github.com/cruuz/2k-football-mod-tools/releases/tag/beta-76.2) or later
-  (Windows, Linux or macOS). Beta 76 and 76.1 can install it too.
-- The `.2k5patch` file from this repository's [Releases](../../releases), and about 6 GB of free space for the new disc.
-- xemu with **System Memory set to 128 MB** (Settings, System) is recommended: the disc uses the extra memory for room in the pregame. It also runs at the default 64 MB, but at some stadiums the pregame show then repeats until you press A to skip it.
+- Your own unmodified ESPN NFL 2K5 USA disc image for the original Xbox. Plain xiso, raw and repacked images are accepted when their game files match the supported retail files. Your source image stays unchanged.
+- [2K5 Mod Studio beta 76.3](https://github.com/cruuz/2k-football-mod-tools/releases/tag/beta-76.3) or later for Windows, Linux or macOS.
+- `SOFTDRINK-2K28-v0.3.2k5patch` from this repository's [Releases](https://github.com/cruuz/softdrink-2k28/releases), with enough free space for the new disc. The Studio checks the required space before installing.
+- xemu. **System Memory set to 128 MB** (Settings, System) is recommended. Earlier builds could repeat the pregame show at some stadiums with the default 64 MB until you pressed A to skip it.
 
 ## Install
 
 1. Open 2K5 Mod Studio and go to the Share tab.
-2. Click **Install SOFTDRINK 2K28**, pick your ESPN NFL 2K5 disc image and the `.2k5patch` file, and choose where to
-   save the new disc.
-3. Wait about a minute. Every file is checked against the finished disc before the new image is kept.
+2. Click **Install SOFTDRINK 2K28**, select your unmodified ESPN NFL 2K5 disc image and the v0.3 patch, and choose a new output image.
+3. Wait for installation and verification to finish. The Studio checks every game file before keeping the new image.
 
-Play the new image in xemu. It has not been tested on a real Xbox yet. To change something first (leave the new
-stadiums out, swap art, change any option), use **Customize SOFTDRINK 2K28** on the same tab: it opens everything the
-disc was built from in the Build tab.
+Open the new image in xemu. Install each pack version directly from retail; do not apply v0.3 over a v0.1 or v0.2 image.
 
-If the new image does not boot: use xemu 0.8.136 or later (the version it was tested on), set System Memory to
-128 MB, and check the image is complete (its size matches the one the Studio reports, and the Studio verified
-every file before keeping it). Then post your xemu version, memory setting and where it stops in the Discord.
+To change options or art before building, use **Customize SOFTDRINK 2K28** on the same tab. It opens the included sources and recipe in the Build tab.
 
-Command line instead of the Studio: `python tools/nfl2k5_modpack.py apply SOFTDRINK-2K28-v0.2.2k5patch --source "your disc.iso"
---out "SOFTDRINK 2K28.iso"` from the 2k-football-mod-tools folder.
+From a 2k-football-mod-tools source checkout, the equivalent command is:
+
+```sh
+python tools/nfl2k5_modpack.py apply SOFTDRINK-2K28-v0.3.2k5patch --source "your disc.iso" --out "SOFTDRINK 2K28.iso"
+```
 
 ## Versions
 
-- **v0.2**: deep balls no longer fly as high as a punt (throws up to 40 yards are unchanged); the end zones at
-  Chicago, Kansas City, Washington and Cleveland no longer have a block of colour behind the lettering; the ESPN
-  scorebar's timeout marks dim as each team uses its timeouts. Everything else is the same as v0.1.
+- **v0.3**: fixes the release of both teams on onside kicks with dynamic kickoffs enabled; corrects portraits, reviewed skin tones and star icons in the 25 added Anniversary moments; corrects the starting situations for the Tyree, Holmes and Butler moments; and includes the frozen 2 October 2026 roster update described below.
+- **v0.2**: lowers the flight of deep balls while leaving throws up to 40 yards unchanged; removes the blocks of colour behind end-zone lettering at Chicago, Kansas City, Washington and Cleveland; and makes the ESPN scorebar's timeout marks dim as each team uses its timeouts.
 - **v0.1**: the first release.
 
-Always install the newest version from your own retail image.
+The roster snapshot included in v0.3 moves J.J. McCarthy from Minnesota to the Giants and places Claudin Cherelus, Odell Beckham and KhaDarel Hodge in free agency, alongside depth-chart adjustments. This describes the supplied snapshot dated 2 October, rather than a live roster feed.
+
+The 25 added Anniversary moments now use a player's own available portrait or no portrait, and preserve star icons for players rated 90 or better. Twenty of the 2,544 players have no reviewed skin-tone source and keep their previous tone. The 25 original retail moments do not receive this new portrait correction. Era-specific uniforms, Super Bowl field logos and era walls remain unfinished.
+
+## Testing and limits
+
+The v0.3 gameplay corrections have been checked offline. This build has not yet been played in game; the earlier v0.2 lab results do not establish v0.3 gameplay behavior. See the [v0.3 release notes](https://github.com/cruuz/softdrink-2k28/releases/tag/v0.3) for its installation checks and any later observations. Original Xbox hardware is outside this release's supported scope.
+
+If installation or boot fails, keep the Studio's error message and report your Studio version, xemu version, memory setting and where it stops in the project's **#2k5-bugs** Discord channel.
 
 ## What is in the pack
 
-Only the new content and instructions. Every byte of the original game is read from your own disc while installing;
-the pack stores no original game data (checked by scanning every stored 4 KiB block against the retail files). Its
-manifest pins the exact retail files it expects, so a modified or wrong disc is refused with an explanation.
+The patch contains mod content and installation instructions. The installer reads unchanged game data from your own disc and refuses modified or incompatible source files. The download is not a playable game image on its own. It also includes the authoring sources and recipe for customization in the Studio.
 
 ## Notes
 
-This is an unofficial fan project, not affiliated with or endorsed by the NFL, the NFLPA, ESPN, 2K or any team. Team,
-league and broadcast names and marks belong to their owners.
+This is an unofficial fan project, not affiliated with or endorsed by the NFL, the NFLPA, ESPN, 2K or any team. Team, league and broadcast names and marks belong to their owners.
 
-Prepared and published by Claude (Anthropic's AI assistant) for Noah (SOFTDRINKTV). Bug reports: the #2k5-bugs
-channel on the project's Discord.
+Prepared for Noah (SOFTDRINKTV) with work by Claude and Codex.
