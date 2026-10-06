@@ -5,27 +5,31 @@ SOFTDRINK 2K28 turns your own copy of ESPN NFL 2K5 (USA, Xbox) into a 2026 seaso
 ## What you need
 
 - Your own unmodified ESPN NFL 2K5 USA disc image for the original Xbox. Plain xiso, raw and repacked images are accepted when their game files match the supported retail files. Your source image stays unchanged.
-- [2K5 Mod Studio beta 76.4](https://github.com/cruuz/2k-football-mod-tools/releases/tag/beta-76.4) or later for Windows, Linux or macOS.
-- `SOFTDRINK-2K28-v0.4.2k5patch` from this repository's [Releases](https://github.com/cruuz/softdrink-2k28/releases), with enough free space for the new disc. The Studio checks the required space before installing.
+- [2K5 Mod Studio beta 76.5](https://github.com/cruuz/2k-football-mod-tools/releases/tag/beta-76.5) or later for Windows, Linux or macOS.
+- `SOFTDRINK-2K28-v0.5.2k5patch` from this repository's [Releases](https://github.com/cruuz/softdrink-2k28/releases), with enough free space for the new disc. The Studio checks the required space before installing.
 - xemu. **System Memory set to 128 MB** (Settings, System) is recommended. Earlier builds could repeat the pregame show at some stadiums with the default 64 MB until you pressed A to skip it.
 
-## Install
+## Install in 5 steps
 
-1. Open 2K5 Mod Studio and go to the Share tab.
-2. Click **Install SOFTDRINK 2K28**, select your unmodified ESPN NFL 2K5 disc image and the v0.4 patch, and choose a new output image.
-3. Wait for installation and verification to finish. The Studio checks every game file before keeping the new image.
+1. Download **2K5 Mod Studio beta-76.5** and **SOFTDRINK-2K28-v0.5.2k5patch** from their release pages. Keep the patch file as downloaded; do not extract it.
+2. Open Studio and go to **Build & Share → Share → Install SOFTDRINK 2K28**.
+3. Select your **unmodified ESPN NFL 2K5 USA Xbox image**, then the **`.2k5patch` file itself**. Use the original image for each update.
+4. Choose a new output image and wait for **Disc ready**.
+5. In xemu, choose **Machine → Load Disc** and select the **new image**, or click **Play latest disc in xemu** in Studio. In the game, **load the disc roster and start a fresh franchise**. Existing franchises keep their saved roster.
 
-Open the new image in xemu. Install each pack version directly from retail; do not apply v0.4 over an earlier SOFTDRINK image.
+Set xemu System Memory to **128 MiB**. See the [five-step install guide](https://github.com/cruuz/2k-football-mod-tools/blob/beta-76.5/docs/mod_editor/install_softdrink_2k28.md) and [recommended xemu settings](https://github.com/cruuz/2k-football-mod-tools/blob/beta-76.5/docs/mod_editor/recommended_xemu_settings.md).
 
 To change options or art before building, use **Customize SOFTDRINK 2K28** on the same tab. It opens the included sources and recipe in the Build tab.
 
 From a 2k-football-mod-tools source checkout, the equivalent command is:
 
 ```sh
-python tools/nfl2k5_modpack.py apply SOFTDRINK-2K28-v0.4.2k5patch --source "your disc.iso" --out "SOFTDRINK 2K28.iso"
+python tools/nfl2k5_modpack.py apply SOFTDRINK-2K28-v0.5.2k5patch --source "your disc.iso" --out "SOFTDRINK 2K28.iso"
 ```
 
 ## Versions
+
+- **v0.5**: commentary uses available surnames or jersey numbers; the dated free-agent pool grows to 377 players, including 18 quarterbacks; the refreshed roster starts with 155 vacant records for historical imports and Create Player; modern facemasks gain cage clearance; selected uniform fonts, crowd joins, field art and end-wall play-clock digits are corrected. Anniversary has 51 chronological moments, including the Unc Bowl. The incomplete Practice Squad screen is removed. Passing and ordinary ball-carrier input changes have offline native checks and still need a gameplay check. New player ratings are estimates, appearances are generic and no new individual headshots are added. See the [v0.5 release notes](https://github.com/cruuz/softdrink-2k28/releases/tag/v0.5) for the full scope and limits.
 
 - **v0.4**: normal and shotgun/spread personnel use the lead running back; SPECIAL PWRB has a separate order; 236 affected free agents use the native no-photo fallback instead of a repeated wrong portrait; and 135 modern stadium crowd variants have corrected spacing and billboard heights. MetLife is unchanged. The installed image matches the desktop test disc and retains its Anniversary and kickoff corrections. Load the disc roster and start a fresh franchise for the roster changes; existing saves retain their stored players and depth charts.
 
@@ -35,11 +39,13 @@ python tools/nfl2k5_modpack.py apply SOFTDRINK-2K28-v0.4.2k5patch --source "your
 
 The roster snapshot included in v0.3 moves J.J. McCarthy from Minnesota to the Giants and places Claudin Cherelus, Odell Beckham and KhaDarel Hodge in free agency, alongside depth-chart adjustments. This describes the supplied snapshot dated 2 October, rather than a live roster feed.
 
-Anniversary content carries forward the portrait and star corrections present on the desktop test disc. Players without reviewed portrait or skin-tone data use the available fallback or retain their previous tone. Era-specific uniforms, Super Bowl field logos and era walls remain unfinished.
+Anniversary content retains the earlier portrait and star corrections. Some period field details, unavailable venues and the Unc uniforms remain documented approximations; the two new 2025 teams include 32 labeled template appearances among 106 players.
 
 ## Testing and limits
 
-The v0.4 corrections have offline checks. Native installation is verified by reproducing the finished disc byte for byte on Linux and with Windows CPython under Wine. No new gameplay playtest is claimed for these corrections. See the [v0.4 release notes](https://github.com/cruuz/softdrink-2k28/releases/tag/v0.4) for the release checks. Original Xbox hardware is outside this release's supported scope.
+The v0.5 corrections have offline checks. Linux and Windows CPython under Wine installations reproduce the finished disc byte for byte, matching all 19 game files. One private xemu smoke reached a 2026 game, coin toss, a helmeted close-up and Broadcast view at AT&T. Commentary, motion, passing, franchise behavior and the visual changes still need a gameplay check. The disc follows verified native repairs on v0.4; a complete 116-option Studio build was not run.
+
+The reported post-playcall hang and receiver TD graphic remain unresolved. The Vikings horn, moving Giants helmet wobble and several stadium geometry defects remain open. Original Xbox hardware is outside this release's supported scope.
 
 If installation or boot fails, keep the Studio's error message and report your Studio version, xemu version, memory setting and where it stops in the project's **#2k5-bugs** Discord channel.
 
