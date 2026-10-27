@@ -1,0 +1,103 @@
+SOFTDRINK 2K28: START HERE
+
+Prepared by Claude on Noah's behalf.
+
+SOFTDRINK 2K28 turns your own copy of ESPN NFL 2K5 (USA, original Xbox) into a 2026 season disc. This page is for people who have
+never modded a game. You do not need a terminal.
+
+This is an unofficial fan project. It is not affiliated with or endorsed by the NFL, the NFLPA, ESPN, 2K or any team. The patch
+contains no game data. You bring your own disc.
+
+WHAT YOU NEED
+1. Your own ESPN NFL 2K5 (USA, Xbox) disc image, dumped from a disc you own, untouched (.iso or .xiso). A disc someone already
+   modded or a rebuilt (repacked) image is refused. Start again from a clean dump if the Studio says so.
+2. 2K5 Mod Studio (free), beta-78 or later. Download it from the Studio releases, using the newest one at the top of the list (it
+   may be marked Pre-release):
+   https://github.com/cruuz/2k-football-mod-tools/releases
+   Windows: run the installer. macOS: extract it and double-click 2K5-Mod-Studio.command (first time, right-click and choose Open).
+   Linux and Steam Deck (Desktop Mode): extract it, run ./2K5-Mod-Studio.sh --setup once, then ./2K5-Mod-Studio.sh.
+3. The SOFTDRINK patch: the file ending in .2k5patch on this page's Releases tab
+   (https://github.com/cruuz/softdrink-2k28/releases). Keep it exactly as downloaded. Do not unzip it. The .sha256 file only
+   checks the download.
+4. xemu, the Xbox emulator, from https://xemu.app. It needs its own BIOS files, which this project does not supply:
+   https://xemu.app/docs/required-files/
+5. At least 8 GB of free disk space on the drive where the new image goes, plus room for the downloaded patch (the v0.7 patch is
+   about 1.13 GB). The finished disc is about 6 GB.
+
+INSTALL
+1. Open 2K5 Mod Studio.
+2. Sidebar: Build & Share, then the Share tab, then Install SOFTDRINK 2K28.
+3. Choose your untouched NFL 2K5 image, then the .2k5patch file itself.
+4. Choose where to save the new image, for example "SOFTDRINK 2K28.xiso.iso".
+5. Wait for "Disc ready". Your original image is never changed.
+For every new SOFTDRINK version, start again from your original untouched image, not from the last SOFTDRINK disc.
+
+PLAY IT IN XEMU
+1. In xemu settings set System Memory to 128 MiB, then restart xemu. This is required for SOFTDRINK 2K28 v0.7: the disc uses the
+   bigger roster built for the 128 MiB layout. Do not run this disc at 64 MiB.
+2. In xemu choose Machine, Load Disc, and pick the new image. (Or click "Play latest disc in xemu" in the Studio.)
+3. If the picture is grainy, try View, Int. Resolution Scale, 2x.
+4. If the game sits on the Xbox logo, restart xemu.
+
+ROSTER AND FRANCHISE
+In the game, load the disc roster first, then start a fresh franchise. A game or save made earlier keeps its own old players.
+The Crib is now the Trophy Room only: bought items no longer open anything, and furniture already placed stays as decoration. In
+Franchise, the Front Office Player Progress row now shows weekly rating changes for your club; an older save starts a fresh
+history the first time it loads.
+If it looks unchanged or shows 2004 rosters, check: you loaded the new image; you installed from the untouched image plus the
+.2k5patch; you started a fresh franchise after loading the disc roster; xemu memory is 128 MiB.
+
+UPGRADING AN EXISTING FRANCHISE
+Copy your save somewhere safe first. In the Studio open Rosters, choose "Open Xbox save...", pick the save (an Action Replay zip,
+an extracted folder, or a SAVEGAME.DAT with its EXTRA file). On the Franchise page choose "Upgrade franchise save to the current
+build", click "Choose disc..." and pick your SOFTDRINK disc, click "Preview upgrade" and read it, then "Write signed copy".
+A franchise saved on an older build keeps its old coaches, years pro, hair styles (if it was started before the disc had them),
+award history and free agent pool. The preview lists coach bodies and pictures, corrected years pro, playbook fields, restored
+team history, hair styles taken from the disc (styles you set yourself are kept), award history (Pro Bowls and honors), and the
+new free agents, which also moves the save to the bigger SOFTDRINK roster. Your season progress, contracts and stats are kept.
+The original save is untouched.
+The upgrade does not change player ratings, colleges, announcer names, name suffixes or equipment. A franchise keeps its own
+roster copy, so those need a new franchise. Old saves still load without the upgrade; they just keep the old free agent pool.
+Saves made with the 16 reserves option (724,140 bytes) cannot be loaded on the bigger-roster disc, and the upgrade cannot move
+them.
+
+ADDING YOUR OWN ROSTER
+In the Studio: Rosters, "Use the open disc", edit players, then "Export roster edits (.json)...". In Build & Share tick "Include
+exported Rosters edits" and choose that file. To keep SOFTDRINK's art and settings, start from "Customize SOFTDRINK 2K28" on
+the Share tab. Tick "Save disc copy as", click "Make my disc", and wait for "Disc ready". Then load that disc in xemu, load the
+disc roster in the game and start a fresh franchise. Roster edits change a new disc, not a save you already have.
+
+EXTRA POINT DISTANCE
+There is no custom distance. In SOFTDRINK 2K28 extra points are snapped from the 15, and that is fixed. It comes from one on/off
+option, "Modern kick spots & kicking power", and the only other choice is the original game's spot, the 2. That option controls
+four things together: kickoffs from the 35 instead of the 30; touchbacks on kickoffs to the 35 instead of the 20 (punts and
+safety kicks keep the original 20); extra points from the 15 instead of the 2 (two-point tries stay at the 2); and a longer
+field goal range for strong kickers (about 65 to 69 yards for a 99 kicker). SOFTDRINK also turns on "Dynamic kickoff alignment"
+(kickoff coverage and return line-ups) and "Dynamic kickoff" (nobody moves until the ball comes down, a landing zone, CPU kicks
+and touchbacks to the 35), which are built for the 35-yard tee.
+To go back to the original extra point spot:
+  1. Build & Share, Share, "Customize SOFTDRINK 2K28".
+  2. Untick "Dynamic kickoff: ready stance and close blocks" FIRST. While it is ticked, a build switches "Modern kick spots &
+     kicking power" back on by itself.
+  3. Untick "Dynamic kickoff alignment", and untick "Modern kick spots & kicking power".
+  4. Optional: tick "More kicking power; keep 2004 kick spots" to keep the longer field goals with the original spots. It cannot
+     be ticked together with Modern kick spots.
+  5. Make my disc. This puts the extra point back at the 2, and also puts kickoffs back to the 30 and kickoff touchbacks back
+     to the 20, with the original kickoff set-ups.
+A customized build is made from the pack's included sources. A rebuild from those sources has not been checked against the
+released disc byte for byte, so test it yourself.
+
+PLAY CLOCK
+SOFTDRINK 2K28 has the Studio's accelerated play clock on, with a 20 second minimum. It is in Gameplay, Game Fixes, and in
+Customize SOFTDRINK 2K28. Its runoff stops at 2:00 in the second quarter, fourth quarter and overtime.
+
+IF SOMETHING GOES WRONG
+Build failed: in Build & Share click "Copy Build summary" and paste it with the first error line. The Studio also refuses some
+common first-run mistakes before it starts: Make my disc with nothing ticked (it points you to Install SOFTDRINK 2K28), an
+output folder inside OneDrive on Windows (use a plain folder such as C:\2K5), too little free space (keep at least the source
+size plus 512 MiB free; about 8 GB in practice), and a source that is neither an untouched retail dump nor a SOFTDRINK disc.
+Freeze or crash: say your mode, teams, stadium and play, your Studio version, this pack's version, your xemu version and memory
+setting, and where it stopped. A screenshot or short clip helps most.
+Questions and bug reports: the project Discord, https://discord.gg/dpMJCnJZD, in the #2k5-bugs channel.
+Studio issues: https://github.com/cruuz/2k-football-mod-tools/issues
+Full guide: https://github.com/cruuz/2k-football-mod-tools/blob/beta-78/docs/START_HERE.md
