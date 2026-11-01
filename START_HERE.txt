@@ -9,9 +9,12 @@ This is an unofficial fan project. It is not affiliated with or endorsed by the 
 contains no game data. You bring your own disc.
 
 WHAT YOU NEED
-1. Your own ESPN NFL 2K5 (USA, Xbox) disc image, dumped from a disc you own, untouched (.iso or .xiso). A disc someone already
-   modded or a rebuilt (repacked) image is refused. Start again from a clean dump if the Studio says so.
-2. 2K5 Mod Studio (free), beta-78 or later. Download it from the Studio releases, using the newest one at the top of the list (it
+1. Your own ESPN NFL 2K5 (USA, Xbox) disc image, dumped from a disc you own, untouched, as one image file (.iso or .xiso).
+   A raw (redump) dump or a rebuilt (repacked) image is fine. A disc someone already modded is refused. Start again from a clean
+   dump if the Studio says so.
+   Install SOFTDRINK 2K28 needs an image file. If your dump is an extracted ("HDD ready") game folder, turn it into an xiso
+   first (for example with extract-xiso). Pick the image file itself, not a shortcut or symbolic link to it.
+2. 2K5 Mod Studio (free), beta-79 or later. Download it from the Studio releases, using the newest one at the top of the list (it
    may be marked Pre-release):
    https://github.com/cruuz/2k-football-mod-tools/releases
    Windows: run the installer. macOS: extract it and double-click 2K5-Mod-Studio.command (first time, right-click and choose Open).
@@ -21,8 +24,8 @@ WHAT YOU NEED
    checks the download.
 4. xemu, the Xbox emulator, from https://xemu.app. It needs its own BIOS files, which this project does not supply:
    https://xemu.app/docs/required-files/
-5. At least 8 GB of free disk space on the drive where the new image goes, plus room for the downloaded patch (the v0.7 patch is
-   about 1.13 GB). The finished disc is about 6 GB.
+5. At least 8 GB of free disk space on the drive where the new image goes, plus room for the downloaded patch (the v0.8 patch is
+   about 1.24 GB). The finished disc is about 6 GB.
 
 INSTALL
 1. Open 2K5 Mod Studio.
@@ -33,8 +36,9 @@ INSTALL
 For every new SOFTDRINK version, start again from your original untouched image, not from the last SOFTDRINK disc.
 
 PLAY IT IN XEMU
-1. In xemu settings set System Memory to 128 MiB, then restart xemu. This is required for SOFTDRINK 2K28 v0.7: the disc uses the
-   bigger roster built for the 128 MiB layout. Do not run this disc at 64 MiB.
+1. In xemu settings set System Memory to 128 MiB and choose the Complex 4627 BIOS image as the Flash ROM (BIOS), then restart
+   xemu. This is required for SOFTDRINK 2K28 v0.8: the disc uses the bigger roster built for the 128 MiB layout, and its startup
+   patch needs the 4627 BIOS. Do not run this disc at 64 MiB.
 2. In xemu choose Machine, Load Disc, and pick the new image. (Or click "Play latest disc in xemu" in the Studio.)
 3. If the picture is grainy, try View, Int. Resolution Scale, 2x.
 4. If the game sits on the Xbox logo, restart xemu.
@@ -42,10 +46,10 @@ PLAY IT IN XEMU
 ROSTER AND FRANCHISE
 In the game, load the disc roster first, then start a fresh franchise. A game or save made earlier keeps its own old players.
 The Crib is now the Trophy Room only: bought items no longer open anything, and furniture already placed stays as decoration. In
-Franchise, the Front Office Player Progress row now shows weekly rating changes for your club; an older save starts a fresh
+Franchise, the Front Office Player Progress row shows your club's rating changes this season; an older save starts a fresh
 history the first time it loads.
 If it looks unchanged or shows 2004 rosters, check: you loaded the new image; you installed from the untouched image plus the
-.2k5patch; you started a fresh franchise after loading the disc roster; xemu memory is 128 MiB.
+.2k5patch; you started a fresh franchise after loading the disc roster; xemu memory is 128 MiB with the 4627 BIOS.
 
 UPGRADING AN EXISTING FRANCHISE
 Copy your save somewhere safe first. In the Studio open Rosters, choose "Open Xbox save...", pick the save (an Action Replay zip,
@@ -56,6 +60,8 @@ award history and free agent pool. The preview lists coach bodies and pictures, 
 team history, hair styles taken from the disc (styles you set yourself are kept), award history (Pro Bowls and honors), and the
 new free agents, which also moves the save to the bigger SOFTDRINK roster. Your season progress, contracts and stats are kept.
 The original save is untouched.
+Upgrade a v0.7 franchise BEFORE you load it in the v0.8 game: once the v0.8 game has saved it, Upgrade cannot add
+the 865 extra draft-class records (it keeps the old size and says so).
 The upgrade does not change player ratings, colleges, announcer names, name suffixes or equipment. A franchise keeps its own
 roster copy, so those need a new franchise. Old saves still load without the upgrade; they just keep the old free agent pool.
 Saves made with the 16 reserves option (724,140 bytes) cannot be loaded on the bigger-roster disc, and the upgrade cannot move
@@ -100,4 +106,4 @@ Freeze or crash: say your mode, teams, stadium and play, your Studio version, th
 setting, and where it stopped. A screenshot or short clip helps most.
 Questions and bug reports: the project Discord, https://discord.gg/dpMJCnJZD, in the #2k5-bugs channel.
 Studio issues: https://github.com/cruuz/2k-football-mod-tools/issues
-Full guide: https://github.com/cruuz/2k-football-mod-tools/blob/beta-78/docs/START_HERE.md
+Full guide: https://github.com/cruuz/2k-football-mod-tools/blob/beta-79/docs/START_HERE.md
