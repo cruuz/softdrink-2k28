@@ -14,7 +14,7 @@ WHAT YOU NEED
    dump if the Studio says so.
    Install SOFTDRINK 2K28 needs an image file. If your dump is an extracted ("HDD ready") game folder, turn it into an xiso
    first (for example with extract-xiso). Pick the image file itself, not a shortcut or symbolic link to it.
-2. 2K5 Mod Studio (free), beta-79 or later. Download it from the Studio releases, using the newest one at the top of the list (it
+2. 2K5 Mod Studio (free), beta-80 or later. Download it from the Studio releases, using the newest one at the top of the list (it
    may be marked Pre-release):
    https://github.com/cruuz/2k-football-mod-tools/releases
    Windows: run the installer. macOS: extract it and double-click 2K5-Mod-Studio.command (first time, right-click and choose Open).
@@ -24,7 +24,7 @@ WHAT YOU NEED
    checks the download.
 4. xemu, the Xbox emulator, from https://xemu.app. It needs its own BIOS files, which this project does not supply:
    https://xemu.app/docs/required-files/
-5. At least 8 GB of free disk space on the drive where the new image goes, plus room for the downloaded patch (the v0.8 patch is
+5. At least 8 GB of free disk space on the drive where the new image goes, plus room for the downloaded patch (the v0.9 patch is
    about 1.24 GB). The finished disc is about 6 GB.
 
 INSTALL
@@ -36,12 +36,19 @@ INSTALL
 For every new SOFTDRINK version, start again from your original untouched image, not from the last SOFTDRINK disc.
 
 PLAY IT IN XEMU
-1. In xemu settings set System Memory to 128 MiB and choose the Complex 4627 BIOS image as the Flash ROM (BIOS), then restart
-   xemu. This is required for SOFTDRINK 2K28 v0.8: the disc uses the bigger roster built for the 128 MiB layout, and its startup
+1. In xemu settings set System Memory to 128 MiB and choose the Complex 4627 BIOS image as the Flash ROM (BIOS), then close
+   xemu completely and open it again (it reads the memory setting only when it starts). This is required for SOFTDRINK 2K28 v0.9: the disc uses the bigger roster built for the 128 MiB layout, and its startup
    patch needs the 4627 BIOS. Do not run this disc at 64 MiB.
 2. In xemu choose Machine, Load Disc, and pick the new image. (Or click "Play latest disc in xemu" in the Studio.)
 3. If the picture is grainy, try View, Int. Resolution Scale, 2x.
 4. If the game sits on the Xbox logo, restart xemu.
+
+EXPERIMENTAL 64 MB PACK
+The release page also has SOFTDRINK-2K28-v0.9-64MB.2k5patch, an experimental build for xemu at 64 MiB System Memory.
+It turns off 65 settings to fit (among them the 128 MB memory code, the modern injured reserve, MyCareer and the
+History screen), and its rosters are fitted to the original game's roster size. It was tested only in the emulator at
+64 MiB (two stadiums and a 10 minute demo, with no fault), not on a console or in hakuX. Install it the same way, keep
+System Memory at 64 MiB for it, and use the 128 MB pack for the full game.
 
 ROSTER AND FRANCHISE
 In the game, load the disc roster first, then start a fresh franchise. A game or save made earlier keeps its own old players.
@@ -60,8 +67,8 @@ award history and free agent pool. The preview lists coach bodies and pictures, 
 team history, hair styles taken from the disc (styles you set yourself are kept), award history (Pro Bowls and honors), and the
 new free agents, which also moves the save to the bigger SOFTDRINK roster. Your season progress, contracts and stats are kept.
 The original save is untouched.
-Upgrade a v0.7 franchise BEFORE you load it in the v0.8 game: once the v0.8 game has saved it, Upgrade cannot add
-the 865 extra draft-class records (it keeps the old size and says so).
+Upgrade also adds the 865 extra draft-class records to a franchise the game already saved, seeds the Super Bowl history,
+and no longer breaks a MyCareer save.
 The upgrade does not change player ratings, colleges, announcer names, name suffixes or equipment. A franchise keeps its own
 roster copy, so those need a new franchise. Old saves still load without the upgrade; they just keep the old free agent pool.
 Saves made with the 16 reserves option (724,140 bytes) cannot be loaded on the bigger-roster disc, and the upgrade cannot move
@@ -104,6 +111,8 @@ output folder inside OneDrive on Windows (use a plain folder such as C:\2K5), to
 size plus 512 MiB free; about 8 GB in practice), and a source that is neither an untouched retail dump nor a SOFTDRINK disc.
 Freeze or crash: say your mode, teams, stadium and play, your Studio version, this pack's version, your xemu version and memory
 setting, and where it stopped. A screenshot or short clip helps most.
+Freeze where the commentators repeat a line: run "Check my SOFTDRINK disc" in the Studio on your image first. A damaged
+or cut short copy looks exactly like a game freeze.
 Questions and bug reports: the project Discord, https://discord.gg/dpMJCnJZD, in the #2k5-bugs channel.
 Studio issues: https://github.com/cruuz/2k-football-mod-tools/issues
-Full guide: https://github.com/cruuz/2k-football-mod-tools/blob/beta-79/docs/START_HERE.md
+Full guide: https://github.com/cruuz/2k-football-mod-tools/blob/beta-80/docs/START_HERE.md
